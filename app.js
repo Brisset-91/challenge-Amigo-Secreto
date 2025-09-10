@@ -19,7 +19,6 @@ function addFriend() {
     }   else {
         names.push(friendName);
         document.getElementById("amigo").value = "";
-        console.log(names);
         
         displayNames()
     }
@@ -35,8 +34,21 @@ function displayNames() {
         listItem.textContent = name;
         listElement.appendChild(listItem);
     });
-    console.log("foreach",names);
 }
 
 /*Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.*/
+
+function drawFriend() {
+    if (names.length < 2) {
+        alert("Por favor ingresa al menos dos nombres para realizar el sorteo");
+        return;
+    }
+    const randomIndex = Math.floor(Math.random() * names.length);
+    const selectedFriend = names[randomIndex];
+    document.getElementById("resultado").innerHTML = `<li>Tu amigo secreto es:${selectedFriend}</li>`;
+
+    /*Reiniciar lista: Después de realizar el sorteo, la lista de nombres se vaciará automáticamente para permitir un nuevo sorteo.*/
+    names = [];
+    displayNames()
+}
 
