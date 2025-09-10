@@ -1,5 +1,4 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-
+/*Lista de nombres: Crear una lista vacía para almacenar los nombres de los amigos.*/
 let names = [];
 
 /*Agregar nombres: Los usuarios escribirán el nombre de un amigo en un campo de texto y lo agregarán a una lista visible al hacer clic en "Adicionar".*/
@@ -19,8 +18,9 @@ function addFriend() {
     }   else {
         names.push(friendName);
         document.getElementById("amigo").value = "";
-        
+       
         displayNames()
+        
     }
 }
 
@@ -38,7 +38,7 @@ function displayNames() {
 
 /*Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.*/
 
-function drawFriend() {
+function pickFriend() {
     if (names.length < 2) {
         alert("Por favor ingresa al menos dos nombres para realizar el sorteo");
         return;
@@ -48,6 +48,7 @@ function drawFriend() {
     document.getElementById("resultado").innerHTML = `<li>Tu amigo secreto es:${selectedFriend}</li>`;
 
     /*Reiniciar lista: Después de realizar el sorteo, la lista de nombres se vaciará automáticamente para permitir un nuevo sorteo.*/
+    
     names = [];
     displayNames()
 }
